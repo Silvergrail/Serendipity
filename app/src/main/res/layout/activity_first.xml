@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_black"
     android:gravity="center_horizontal"
-
     android:weightSum="1">
 
     <ImageView
@@ -32,7 +31,7 @@
         android:id="@+id/login_button"
         android:text="@string/login_button"
         android:background="@drawable/radius_btn"
-        android:drawableLeft="@drawable/ic_login_grey"
+        android:drawableLeft="@drawable/ic_user_grey"
         android:layout_marginTop="10dp"
         android:textAllCaps="false"
         android:allowUndo="true"
@@ -44,7 +43,7 @@
         android:layout_width="282dp"
         android:layout_height="wrap_content"
         android:id="@+id/register_button"
-        android:text="@string/register_button"
+        android:text="@string/title_activity_register"
         android:background="@drawable/radius_btn"
         android:drawableLeft="@drawable/ic_register_grey"
         android:layout_marginTop="10dp"
@@ -69,6 +68,4 @@
         android:textColor="#ffffff" />
 
 </LinearLayout>
-
-
 
