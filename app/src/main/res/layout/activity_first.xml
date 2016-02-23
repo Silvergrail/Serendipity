@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_black"
+    android:gravity="center_horizontal"
+
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_marginTop="23dp"
+        android:src="@mipmap/ic_logo_cd"
+        android:layout_weight="0.8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senrendipity"
+        android:layout_marginTop="-25dp"
+        android:id="@+id/logo_textView"
+        android:layout_gravity="center_horizontal"
+        android:textSize="35sp"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_button"
+        android:text="@string/login_button"
+        android:background="@drawable/radius_btn"
+        android:drawableLeft="@drawable/ic_login_grey"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:allowUndo="true"
+        android:textSize="25sp"
+        android:autoText="true"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/register_button"
+        android:text="@string/register_button"
+        android:background="@drawable/radius_btn"
+        android:drawableLeft="@drawable/ic_register_grey"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:allowUndo="true"
+        android:textSize="25sp"
+        android:autoText="true"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/map_button"
+        android:text="@string/title_activity_maps"
+        android:background="@drawable/radius_btn"
+        android:drawableLeft="@drawable/ic_map_grey"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:allowUndo="true"
+        android:textSize="25sp"
+        android:autoText="true"
+        android:textColor="#ffffff" />
+
+</LinearLayout>
+
+
+
