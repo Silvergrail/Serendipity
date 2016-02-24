@@ -27,8 +27,8 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="com.sauvola.jussi.serendipity.LoginActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -37,14 +37,15 @@
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme">
         <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
+            <action android:name="com.sauvola.jussi.serendipity.RegisterActivity" />
+            <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
         </activity>
 
         <activity
             android:name=".FirstActivity"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
