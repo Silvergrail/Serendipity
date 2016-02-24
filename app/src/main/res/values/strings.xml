@@ -14,8 +14,15 @@
         completions."
     </string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_register">Register</string>
+
+    <string name="textField_name">Name</string>
+    <string name="textField_nickname">Nick Name</string>
+    <string name="textField_password">Password</string>
+    <string name="textField_city">City</string>
 
     <!-- Strings related to button -->
     <string name="login_button">Login</string>
-    <string name="register_button">Register</string>
+    <string name="title_activity_first">FirstActivity</string>
+    <string name="title_activity_ds">ds</string>
 </resources>
