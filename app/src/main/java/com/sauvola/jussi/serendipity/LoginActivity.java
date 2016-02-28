@@ -45,44 +45,52 @@ public class LoginActivity extends AppCompatActivity {
         email_sign_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            if (jsonObject.names().get(0).equals("success")) {
-                                Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                }) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        HashMap<String, String> hashMap = new HashMap<String, String>();
-                        hashMap.put("email", email.getText().toString());
-                        hashMap.put("password", password.getText().toString());
-
-                        return hashMap;
-                    }
-                };
-
-                requestQueue.add(request);
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.MainActivity");
+                startActivity(intent);
             }
         });
+
+//        email_sign_in_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        try {
+//                            JSONObject jsonObject = new JSONObject(response);
+//                            if (jsonObject.names().get(0).equals("success")) {
+//                                Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+//                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//                            } else {
+//                                Toast.makeText(getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//
+//                    }
+//                }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                    }
+//                }) {
+//                    @Override
+//                    protected Map<String, String> getParams() throws AuthFailureError {
+//                        HashMap<String, String> hashMap = new HashMap<String, String>();
+//                        hashMap.put("email", email.getText().toString());
+//                        hashMap.put("password", password.getText().toString());
+//
+//                        return hashMap;
+//                    }
+//                };
+//
+//                requestQueue.add(request);
+//            }
+//        });
     }
 }
 

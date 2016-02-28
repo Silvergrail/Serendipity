@@ -19,11 +19,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        logout_button = (Button) findViewById(R.id.logout_button);
+        logout_button = (Button) findViewById(R.id.log_out);
         logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(),FirstActivity.class));
             }
         });
     }

@@ -79,7 +79,7 @@
             android:name=".MainActivity"
             android:label="Main">
             <intent-filter>
-                <action android:name="com.sauvola.jussi.serendipity.MMainActivity" />
+                <action android:name="com.sauvola.jussi.serendipity.MainActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
