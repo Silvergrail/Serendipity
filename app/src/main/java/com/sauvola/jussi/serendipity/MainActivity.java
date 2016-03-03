@@ -13,6 +13,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 
     private Button logout_button;
+    private Button go_to_record_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +27,14 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(getApplicationContext(),FirstActivity.class));
             }
         });
+
+        go_to_record_button = (Button) findViewById(R.id.go_to_record);
+        go_to_record_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                startActivity(new Intent(getApplicationContext(), RecordingActivity.class));
+            }
+        });
+
     }
 }
