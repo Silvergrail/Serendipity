@@ -87,7 +87,15 @@
         <activity
             android:name=".RecordingActivity"
             android:label="@string/title_activity_recording"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.sauvola.jussi.RecordingActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+
+        </activity>
     </application>
 
 </manifest>
