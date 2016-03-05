@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_marginBottom="-10dp"
             android:textSize="24sp"
             android:typeface="monospace"
-            android:layout_weight="0.15" />
+            android:layout_weight="0.11" />
 
     </LinearLayout>
 
@@ -35,7 +35,8 @@
          android:id="@+id/tableLayout"
          android:orientation="vertical"
          android:shrinkColumns="4"
-         android:stretchColumns="4">
+         android:stretchColumns="4"
+         android:layout_below="@+id/linearLayout">
 
          <TableRow
              android:layout_width="match_parent"
@@ -90,4 +91,4 @@
 
      </TableLayout>
 
-</LinearLayout>
+</RelativeLayout>

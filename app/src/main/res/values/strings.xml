@@ -20,7 +20,9 @@
     <string name="textField_nickname">Nick Name</string>
     <string name="textField_password">Password</string>
     <string name="textField_city">City</string>
-
+    <string name="textField_ChangeCity">Change City</string>
+    <string name="textField_ChangePassword">Change Password</string>
+    <string name="textField_ChangeEmail">Change Email</string>
     <!-- Strings related to button -->
     <string name="login_button">Login</string>
     <string name="record_button">Record</string>

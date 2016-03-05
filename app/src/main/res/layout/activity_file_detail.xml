@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundDarkgrey"
+    tools:context="com.sauvola.jussi.serendipity.FileDetailActivity"
+    android:gravity="center_horizontal">
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:background="@color/colorBackgroundLightgrey"
+        android:padding="17dip"
+        android:id="@+id/File_title_textView"
+        android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="My record file 1"
+                android:id="@+id/textView2"
+                android:typeface="monospace"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="0dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundLightgrey"
+        android:layout_marginBottom="1.5dp"
+        android:id="@+id/GPS_Field"
+        android:clickable="false"
+        android:paddingLeft="20dip"
+        android:paddingBottom="17dip"
+        android:paddingTop="17dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GPS"
+            android:id="@+id/GPS_textView" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundLightgrey"
+        android:layout_marginBottom="1.5dp"
+        android:id="@+id/Timestap_Field"
+        android:paddingLeft="20dp"
+        android:paddingTop="17dip"
+        android:paddingBottom="17dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Timestamp"
+            android:id="@+id/timestamp_textView" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundLightgrey"
+        android:orientation="vertical"
+        android:layout_marginBottom="18dp"
+        android:id="@+id/Descriptoin_Field"
+        android:paddingTop="17dip"
+        android:paddingBottom="17dip"
+        android:paddingLeft="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descitpion: this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. "
+            android:id="@+id/deription_textView"
+            android:layout_marginBottom="0dp"
+            android:paddingRight="17dp"
+            android:paddingLeft="17dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/delete_btn"
+            android:text="Delete"
+            android:id="@+id/delete_btn"
+            android:textAllCaps="false"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="20dp"
+            android:typeface="monospace"
+            android:textColor="@color/colorWhite" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radius_btn2"
+            android:text="Save"
+            android:id="@+id/save_btn"
+            android:textAllCaps="false"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="20dp"
+            android:typeface="monospace" />
+    </TableRow>
+</TableLayout>

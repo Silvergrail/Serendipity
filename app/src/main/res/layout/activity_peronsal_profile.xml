@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:background="@color/colorBackgroundDarkgrey"
+    android:shrinkColumns="1,2,3"
+    android:stretchColumns="1,2,3"
+    tools:context="com.sauvola.jussi.serendipity.PeronsalProfileActivity">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundLightgrey"
+        android:id="@+id/Title_tableRow"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="25dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_default_avatar"
+            android:id="@+id/avatar_imageView"
+            android:layout_marginRight="40dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Oliva"
+            android:id="@+id/name_textView"
+            android:typeface="monospace"
+            android:textIsSelectable="false"
+            android:textSize="26dp"
+            android:textAlignment="gravity"
+            android:layout_gravity="center_vertical" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundLightgrey"
+        android:paddingLeft="25dip"
+        android:paddingRight="20dip"
+        android:paddingTop="15dip"
+        android:paddingBottom="15dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/ChangePassword_TableRow"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textField_ChangePassword"
+            android:id="@+id/ChangePassword_textView"
+            android:typeface="monospace"
+            android:layout_span="2"
+            android:textSize="19dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_arrowRifht_black"
+            android:id="@+id/pswChange_btn"
+            android:gravity="right"
+            android:layout_column="2"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.1"
+            android:layout_marginRight="-20dip" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundLightgrey"
+        android:paddingLeft="25dip"
+        android:paddingRight="20dip"
+        android:paddingTop="15dip"
+        android:paddingBottom="15dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/ChangeCity_tableRow"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textField_ChangeEmail"
+            android:id="@+id/CityChange_textView"
+            android:typeface="monospace"
+            android:layout_span="2"
+            android:textSize="19dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_arrowRifht_black"
+            android:id="@+id/CityChange_btn"
+            android:gravity="right"
+            android:layout_column="2"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.1"
+            android:layout_marginRight="-20dip" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundLightgrey"
+        android:paddingLeft="25dip"
+        android:paddingRight="20dip"
+        android:paddingTop="15dip"
+        android:paddingBottom="15dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/ChangeEmail_tableRow"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textField_ChangeCity"
+            android:id="@+id/EmailChange_textView"
+            android:typeface="monospace"
+            android:layout_span="2"
+            android:textSize="19dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_arrowRifht_black"
+            android:id="@+id/EmailChange_btn"
+            android:gravity="right"
+            android:layout_column="2"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.1"
+            android:layout_marginRight="-20dip" />
+    </TableRow>
+
+</TableLayout>
