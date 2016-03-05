@@ -23,6 +23,7 @@
 
     <!-- Strings related to button -->
     <string name="login_button">Login</string>
+    <string name="record_button">Record</string>
     <string name="title_activity_first">FirstActivity</string>
     <string name="title_activity_ds">ds</string>
 </resources>
