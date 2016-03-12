@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sauvola.jussi.serendipity.ProfileActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="133dp"
+        android:background="@color/colorBackgroundDarkgrey"
+        android:id="@+id/linearLayout"
+        android:weightSum="1"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radius_btn2"
+            android:text="@string/record_button"
+            android:textAllCaps="false"
+            android:id="@+id/button"
+            android:layout_marginBottom="-10dp"
+            android:textSize="24sp"
+            android:typeface="monospace"
+            android:layout_weight="0.11" />
+
+    </LinearLayout>
+
+
+     <TableLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:id="@+id/tableLayout"
+         android:orientation="vertical"
+         android:shrinkColumns="4"
+         android:stretchColumns="4"
+         android:layout_below="@+id/linearLayout">
+
+         <TableRow
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_gravity="center_vertical"
+             android:paddingTop="14dp"
+             android:orientation="vertical"
+             android:layout_marginBottom="2dp"
+             android:paddingLeft="12dp"
+             android:paddingRight="14dp"
+             android:paddingBottom="10dp">
+
+             <ImageButton
+                 android:layout_width="44dp"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/record_play_button"
+                 android:background="@drawable/ic_record_play"
+                 android:layout_column="1"
+                 android:layout_gravity="center"
+                 android:layout_marginRight="3dp" />
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="My record File1"
+                 android:layout_gravity="center"
+                 android:id="@+id/textView"
+                 android:textColor="#030303"
+                 android:textSize="20sp"
+                 android:typeface="monospace"
+                 android:paddingLeft="5dip"
+                 android:paddingRight="5dip"
+                 android:layout_column="2"
+                 android:layout_weight="2" />
+
+             <ImageButton
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/record_profile_button"
+                 android:background="@drawable/ic_arrowRifht_black"
+                 android:layout_column="3"
+                 android:layout_gravity="center"
+                 android:layout_weight="0.2" />
+
+         </TableRow>
+
+         <ImageView
+             android:layout_width="fill_parent"
+             android:layout_height="1.5dp"
+             android:background="@color/colorBackgroundDarkgrey"
+             />
+
+     </TableLayout>
+
+</RelativeLayout>

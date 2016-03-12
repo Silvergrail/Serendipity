@@ -13,28 +13,18 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 
     private Button logout_button;
-    private Button go_to_record_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        logout_button = (Button) findViewById(R.id.log_out);
+        logout_button = (Button) findViewById(R.id.logout_button);
         logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),FirstActivity.class));
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             }
         });
-
-        go_to_record_button = (Button) findViewById(R.id.go_to_record);
-        go_to_record_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                startActivity(new Intent(getApplicationContext(), RecordingActivity.class));
-            }
-        });
-
     }
 }

@@ -45,14 +45,6 @@ public class LoginActivity extends AppCompatActivity {
         email_sign_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent("com.sauvola.jussi.serendipity.MainActivity");
-                startActivity(intent);
-            }
-        });
-
-/*        email_sign_in_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
                 request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
@@ -90,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 requestQueue.add(request);
             }
-        });*/
+        });
     }
 }
 
