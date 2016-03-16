@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:layout_marginTop="23dp"
-        android:src="@mipmap/ic_logo_cd"
-        android:layout_weight="0.8" />
+        android:src="@drawable/pic_cd"
+        android:layout_weight="0.8"
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
