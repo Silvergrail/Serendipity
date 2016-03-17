@@ -5,7 +5,7 @@ package com.sauvola.jussi.serendipity;
  */
 public class Config {
     //URL to our login.php file
-    public static final String LOGIN_URL = "http://www.serendipitydemo/login.php";
+    public static final String LOGIN_URL = "http://www.serendipitydemo.com/getuser.php";
 
     //Keys for email and password as defined in our $_POST['key'] in login.php
     public static final String KEY_EMAIL = "email";

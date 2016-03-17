@@ -4,6 +4,7 @@ package com.sauvola.jussi.serendipity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -20,10 +21,17 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
 
     //Defining views
     private EditText email;
@@ -41,93 +49,65 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //Initializing views
         email = (EditText) findViewById(R.id.email);
+        new GetData(email).execute("");
+        String emailInserted = email.getText().toString();
+
         password = (EditText) findViewById(R.id.password);
+        String passwordInserted = password.getText().toString();
 
         emailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
 
-        //Adding click listener
-        emailSignInButton.setOnClickListener(this);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //In onresume fetching value from sharedpreference
-        SharedPreferences sharedPreferences = getSharedPreferences(Config.SHARED_PREF_NAME,Context.MODE_PRIVATE);
+    private class GetData extends AsyncTask<String, Void, String> {
+        private EditText display;
 
-        //Fetching the boolean value form sharedpreferences
-        loggedIn = sharedPreferences.getBoolean(Config.LOGGEDIN_SHARED_PREF, false);
 
-        //If we will get true
-        if(loggedIn){
-            //We will start the Profile Activity
-            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-            startActivity(intent);
+        GetData(EditText view){
+            this.display = view;
+            display = (EditText) findViewById(R.id.email);
+        }
+
+        protected String doInBackground(String... message){
+            HttpClient httpclient;
+            HttpGet request;
+            HttpResponse response = null;
+            String result = "";
+            try{
+                httpclient = new DefaultHttpClient();
+                request = new HttpGet(Config.LOGIN_URL);
+                response = httpclient.execute(request);
+            } catch (Exception e){
+                result = "error1";
+            }
+
+            try{
+                BufferedReader rd = new BufferedReader(new InputStreamReader(
+                        response.getEntity().getContent()));
+                String line="";
+                while((line = rd.readLine()) != null){
+                    result = result + line;
+                }
+            } catch(Exception e){
+                result = "error2";
+            }
+            return result;
+        }
+
+        protected void onPostExecute(String result){
+            this.display.setText(result);
         }
     }
 
-    private void login(){
-        //Getting values from edit texts
-        final String email = this.email.getText().toString().trim();
-        final String password = this.password.getText().toString().trim();
+    private void loginPost() {
 
-        //Creating a string request
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.LOGIN_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //If we are getting success from server
-                        if(response.equalsIgnoreCase(Config.LOGIN_SUCCESS)){
-                            //Creating a shared preference
-                            SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
 
-                            //Creating editor to store values to shared preferences
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                            //Adding values to editor
-                            editor.putBoolean(Config.LOGGEDIN_SHARED_PREF, true);
-                            editor.putString(Config.EMAIL_SHARED_PREF, email);
 
-                            //Saving values to editor
-                            editor.commit();
 
-                            //Starting profile activity
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                        }else{
-                            //If the server response is not success
-                            //Displaying an error message on toast
-                            Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //You can handle error here if you want
-                    }
-                }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                //Adding parameters to request
-                params.put(Config.KEY_EMAIL, email);
-                params.put(Config.KEY_PASSWORD, password);
+    };
 
-                //returning parameter
-                return params;
-            }
-        };
 
-        //Adding the string request to the queue
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
 
-    @Override
-    public void onClick(View v) {
-        //Calling the login function
-        login();
-    }
 }
 
