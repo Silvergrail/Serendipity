@@ -15,7 +15,7 @@ public class Config {
     public static final String LOGIN_SUCCESS = "success";
 
     //Keys for Sharedpreferences
-    //This would be the name of our shared preferences
+    //This would be the username of our shared preferences
     public static final String SHARED_PREF_NAME = "myloginapp";
 
     //This would be used to store the email of current logged in user
