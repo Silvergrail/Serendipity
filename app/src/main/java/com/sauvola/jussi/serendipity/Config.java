@@ -5,7 +5,7 @@ package com.sauvola.jussi.serendipity;
  */
 public class Config {
     //URL to our login.php file
-    public static final String LOGIN_URL = "http://www.serendipitydemo/login.php";
+    public static final String LOGIN_URL = "http://www.serendipitydemo.com/getuser.php";
 
     //Keys for email and password as defined in our $_POST['key'] in login.php
     public static final String KEY_EMAIL = "email";
@@ -15,7 +15,7 @@ public class Config {
     public static final String LOGIN_SUCCESS = "success";
 
     //Keys for Sharedpreferences
-    //This would be the name of our shared preferences
+    //This would be the username of our shared preferences
     public static final String SHARED_PREF_NAME = "myloginapp";
 
     //This would be used to store the email of current logged in user

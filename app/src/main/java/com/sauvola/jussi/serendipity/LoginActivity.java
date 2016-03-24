@@ -3,131 +3,121 @@ package com.sauvola.jussi.serendipity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-import java.util.HashMap;
-import java.util.Map;
+public class LoginActivity extends AppCompatActivity {
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-
-    //Defining views
-    private EditText email;
-    private EditText password;
-    private Button emailSignInButton;
-
-    //boolean variable to check user is logged in or not
-    //initially it is false
-    private boolean loggedIn = false;
+    EditText username, password;
+    String Name, Password;
+    Context ctx = this;
+    String NAME = null, PASSWORD = null, EMAIL = null;
+    Button login;
+    Button map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        //Initializing views
-        email = (EditText) findViewById(R.id.email);
+        username = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
+        login = (Button) findViewById(R.id.email_sign_in_button);
+        map = (Button) findViewById(R.id.map_button);
 
-        emailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-
-        //Adding click listener
-        emailSignInButton.setOnClickListener(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //In onresume fetching value from sharedpreference
-        SharedPreferences sharedPreferences = getSharedPreferences(Config.SHARED_PREF_NAME,Context.MODE_PRIVATE);
-
-        //Fetching the boolean value form sharedpreferences
-        loggedIn = sharedPreferences.getBoolean(Config.LOGGEDIN_SHARED_PREF, false);
-
-        //If we will get true
-        if(loggedIn){
-            //We will start the Profile Activity
-            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-            startActivity(intent);
-        }
-    }
-
-    private void login(){
-        //Getting values from edit texts
-        final String email = this.email.getText().toString().trim();
-        final String password = this.password.getText().toString().trim();
-
-        //Creating a string request
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.LOGIN_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //If we are getting success from server
-                        if(response.equalsIgnoreCase(Config.LOGIN_SUCCESS)){
-                            //Creating a shared preference
-                            SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-
-                            //Creating editor to store values to shared preferences
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                            //Adding values to editor
-                            editor.putBoolean(Config.LOGGEDIN_SHARED_PREF, true);
-                            editor.putString(Config.EMAIL_SHARED_PREF, email);
-
-                            //Saving values to editor
-                            editor.commit();
-
-                            //Starting profile activity
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                        }else{
-                            //If the server response is not success
-                            //Displaying an error message on toast
-                            Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //You can handle error here if you want
-                    }
-                }){
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                //Adding parameters to request
-                params.put(Config.KEY_EMAIL, email);
-                params.put(Config.KEY_PASSWORD, password);
-
-                //returning parameter
-                return params;
+            public void onClick(View view) {
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.MainActivity");
+                startActivity(intent);
             }
-        };
+        });
 
-        //Adding the string request to the queue
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.MapsActivity");
+                startActivity(intent);
+            }
+
+        });
+
+ /*   public void main_register(View v){
+        startActivity(new Intent(this,RegisterActivity.class));
     }
 
-    @Override
-    public void onClick(View v) {
-        //Calling the login function
-        login();
+    public void main_login(View v){
+        Name = username.getText().toString();
+        Password = password.getText().toString();
+*//*        BackGround b = new BackGround();
+        b.execute(Name, Password);*//*
+
+
+
+
+    }
+
+*//*    class BackGround extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            String name = params[0];
+            String password = params[1];
+            String data="";
+            int tmp;
+
+            try {
+                URL url = new URL("http://www.serendipitydemo.com/loginuser.php");
+                String urlParams = "username="+name+"&password="+password;
+
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setDoOutput(true);
+                OutputStream os = httpURLConnection.getOutputStream();
+                os.write(urlParams.getBytes());
+                os.flush();
+                os.close();
+
+                InputStream is = httpURLConnection.getInputStream();
+                while((tmp=is.read())!=-1){
+                    data+= (char)tmp;
+                }
+
+                is.close();
+                httpURLConnection.disconnect();
+
+                return data;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return "Exception: "+e.getMessage();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "Exception: "+e.getMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            String err=null;
+
+            Intent i = new Intent(ctx, MainActivity.class);
+            i.putExtra("username", NAME);
+            i.putExtra("password", PASSWORD);
+            i.putExtra("email", EMAIL);
+            i.putExtra("err", err);
+            startActivity(i);
+
+        }
+    }*/
     }
 }
 
