@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent("com.sauvola.jussi.serendipity.MainActivity");
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.ProfileActivity");
                 startActivity(intent);
             }
         });
