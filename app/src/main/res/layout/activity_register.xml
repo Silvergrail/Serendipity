@@ -127,7 +127,8 @@
             android:id="@+id/register_button"
             android:textAllCaps="false"
             android:textSize="20dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:typeface="monospace" />
 
     </LinearLayout>
 

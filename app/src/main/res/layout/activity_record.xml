@@ -25,8 +25,21 @@
         android:text="Sound title"
         android:id="@+id/Title_textView"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="46dp"
         android:textSize="30sp"
+        android:layout_above="@+id/save_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" />
+
+    <Button
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius_btn2"
+        android:textAllCaps="false"
+        android:text="Save"
+        android:id="@+id/save_btn"
+        android:typeface="monospace"
+        android:textSize="18dp"
+        android:layout_marginBottom="13dp"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />
 
@@ -83,5 +96,6 @@
         android:id="@+id/linearLayout">
 
     </LinearLayout>
+
 </RelativeLayout>
 
