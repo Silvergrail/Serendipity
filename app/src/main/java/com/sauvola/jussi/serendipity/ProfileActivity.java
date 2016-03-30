@@ -25,6 +25,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+
 public class ProfileActivity extends AppCompatActivity {
 
     String myJSON;
