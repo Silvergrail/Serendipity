@@ -3,8 +3,10 @@ package com.sauvola.jussi.serendipity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +23,7 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.Objects;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -29,6 +32,8 @@ import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -37,15 +42,19 @@ import android.os.AsyncTask;
 public class LoginActivity extends AppCompatActivity {
 
     EditText usernameField, passwordField;
-    private static final String TAG_USER_NAME = "username";
-    private static final String TAG_PASSWORD = "password";
     Button login;
     Button map;
+    String in = "";
+
+    String JSONOutput = "";
+
+    //SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //session = new SessionManager(getApplicationContext());
         usernameField = (EditText) findViewById(R.id.email);
         passwordField = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.email_sign_in_button);
@@ -59,7 +68,32 @@ public class LoginActivity extends AppCompatActivity {
                 String username = usernameField.getText().toString();
                 String password = passwordField.getText().toString();
 
+
+
+                try {
+                    JSONObject reader = new JSONObject(JSONOutput);
+                    String loggedUserId = reader.getString("id");
+                    String loggedUsername = reader.getString("username");
+                    if (Objects.equals(username, loggedUsername)) {
+                        //session.createLoginSession(loggedUserId, loggedUsername);
+                        Toast.makeText(getApplicationContext(), "Welcome " + loggedUsername, Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent("com.sauvola.jussi.serendipity.ProfileActivity");
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Username or password is invalid", Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Username or password is invalid", Toast.LENGTH_SHORT).show();
+                }
+
                 connectWithHttpGet(username, password);
+
+
+
+
+
             }
         });
 
@@ -127,14 +161,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
+                JSONOutput = result;
 
-                if(result.equals("Joomla! Authentication was successful!")){
-                    Toast.makeText(getApplicationContext(), "Joomla! Authentication was successful!", Toast.LENGTH_LONG).show();
+/*                if(result.equals("Joomla! Authentication was successful!")){
+                    Toast.makeText(getApplicationContext(), "Welcome " + JSONOutput, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent("com.sauvola.jussi.serendipity.ProfileActivity");
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(), "Username or password is invalid", Toast.LENGTH_LONG).show();
-                }
+                }*/
+
             }
         }
 
