@@ -1,9 +1,11 @@
 package com.sauvola.jussi.serendipity;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +43,12 @@ import android.os.AsyncTask;
 
 public class LoginActivity extends AppCompatActivity {
 
+    public static final String MyPREFERENCES = "MyPrefs" ;
+    SharedPreferences sharedpreferences = null;
+    SharedPreferences.Editor editor = null;
+    public static final String prefUserName = "nameKey";
+    public static final String prefLoggedUserID = "idKey";
+
     EditText usernameField, passwordField;
     Button login;
     Button map;
@@ -55,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //session = new SessionManager(getApplicationContext());
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Activity.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
         usernameField = (EditText) findViewById(R.id.email);
         passwordField = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.email_sign_in_button);
@@ -73,7 +83,10 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     JSONObject reader = new JSONObject(JSONOutput);
                     String loggedUserId = reader.getString("id");
+                    editor.putString(prefLoggedUserID, loggedUserId);
                     String loggedUsername = reader.getString("username");
+                    editor.putString(prefUserName, loggedUsername);
+                    editor.commit();
                     if (Objects.equals(username, loggedUsername)) {
                         //session.createLoginSession(loggedUserId, loggedUsername);
                         Toast.makeText(getApplicationContext(), "Welcome " + loggedUsername, Toast.LENGTH_LONG).show();
@@ -89,6 +102,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 connectWithHttpGet(username, password);
+
+                Log.e("Lol", JSONOutput);
 
 
 
@@ -133,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
                     HttpResponse httpResponse = httpClient.execute(httpGet);
                     InputStream inputStream;
 
-                            inputStream = httpResponse.getEntity().getContent();
+                    inputStream = httpResponse.getEntity().getContent();
 
                     InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 
