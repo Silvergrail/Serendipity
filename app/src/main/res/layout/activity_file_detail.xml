@@ -23,8 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="My record file 1"
-                android:id="@+id/textView2"
+                android:id="@+id/file_title"
                 android:typeface="monospace"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
@@ -45,8 +44,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GPS"
-            android:id="@+id/GPS_textView" />
+            android:id="@+id/file_gps" />
     </TableRow>
 
     <TableRow
@@ -81,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descitpion: this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. "
-            android:id="@+id/deription_textView"
+            android:id="@+id/file_description"
             android:layout_marginBottom="0dp"
             android:paddingRight="17dp"
             android:paddingLeft="17dp" />
