@@ -1,9 +1,11 @@
 package com.sauvola.jussi.serendipity;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +43,11 @@ import android.os.AsyncTask;
 
 public class LoginActivity extends AppCompatActivity {
 
+   // public static final String MyPREFERENCES = "MyPrefs" ;
+    //public static final String prefUserName = "nameKey";
+    //public static final String prefLoggedUserID = "idKey";
+    //SharedPreferences sharedpreferences;
+
     EditText usernameField, passwordField;
     Button login;
     Button map;
@@ -48,13 +55,15 @@ public class LoginActivity extends AppCompatActivity {
 
     String JSONOutput = "";
 
+    public static String loggedUserId = "";
+
     //SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //session = new SessionManager(getApplicationContext());
+        //sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         usernameField = (EditText) findViewById(R.id.email);
         passwordField = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.email_sign_in_button);
@@ -70,25 +79,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-                try {
-                    JSONObject reader = new JSONObject(JSONOutput);
-                    String loggedUserId = reader.getString("id");
-                    String loggedUsername = reader.getString("username");
-                    if (Objects.equals(username, loggedUsername)) {
-                        //session.createLoginSession(loggedUserId, loggedUsername);
-                        Toast.makeText(getApplicationContext(), "Welcome " + loggedUsername, Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent("com.sauvola.jussi.serendipity.ProfileActivity");
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Username or password is invalid", Toast.LENGTH_LONG).show();
-                    }
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Username or password is invalid", Toast.LENGTH_SHORT).show();
-                }
 
                 connectWithHttpGet(username, password);
+
+                Log.e("Lol", JSONOutput);
 
 
 
@@ -113,12 +108,14 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void connectWithHttpGet(String username, String password) {
+    private void connectWithHttpGet(final String username, String password) {
 
         class HttpGetAsyncTask extends AsyncTask<String, Void, String>{
 
             @Override
             protected String doInBackground(String... params) {
+
+
 
                 String paramUsername = params[0];
                 String paramPassword = params[1];
@@ -133,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                     HttpResponse httpResponse = httpClient.execute(httpGet);
                     InputStream inputStream;
 
-                            inputStream = httpResponse.getEntity().getContent();
+                    inputStream = httpResponse.getEntity().getContent();
 
                     InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 
@@ -161,7 +158,30 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
+
                 JSONOutput = result;
+
+                try {
+                    //SharedPreferences.Editor editor = sharedpreferences.edit();
+                    JSONObject reader = new JSONObject(JSONOutput);
+                    loggedUserId = reader.getString("id");
+                    //editor.putString(prefLoggedUserID, loggedUserId);
+                    String loggedUsername = reader.getString("username");
+                    //editor.putString(prefUserName, loggedUsername);
+                    //editor.commit();
+                    if (Objects.equals(username, loggedUsername)) {
+                        //session.createLoginSession(loggedUserId, loggedUsername);
+                        Toast.makeText(getApplicationContext(), "Welcome " + loggedUsername, Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent("com.sauvola.jussi.serendipity.ProfileActivity");
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Username or password is invalid", Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Username or password is invalid", Toast.LENGTH_SHORT).show();
+                }
 
 /*                if(result.equals("Joomla! Authentication was successful!")){
                     Toast.makeText(getApplicationContext(), "Welcome " + JSONOutput, Toast.LENGTH_LONG).show();
