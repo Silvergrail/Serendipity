@@ -35,13 +35,13 @@ public class FileDetailActivity extends AppCompatActivity {
             file_description = in.getStringExtra(TAG_FILE_DESCRIPTION);
         }
 
-        TextView file_title_text = (TextView) findViewById(R.id.file_title);
+        TextView file_title_text = (TextView) findViewById(R.id.file_title_text);
         file_title_text.setText(file_title);
 
-        TextView file_gps_text = (TextView) findViewById(R.id.file_gps);
+        TextView file_gps_text = (TextView) findViewById(R.id.file_gps_text);
         file_gps_text.setText(file_gps);
 
-        TextView file_description_text = (TextView) findViewById(R.id.file_description);
+        TextView file_description_text = (TextView) findViewById(R.id.file_description_text);
         file_description_text.setText(file_description);
 
     }
