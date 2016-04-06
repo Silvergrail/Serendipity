@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.sauvola.jussi.serendipity.SaveRecordActivity">
+    tools:context=".SaveRecordActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,11 +17,19 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_new_record"
+                android:id="@+id/textView"
+                android:textSize="19dp" />
+
+            </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
-    <?xml version="1.0" encoding="utf-8"?>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -30,59 +38,6 @@
         android:background="@color/colorBackgroundDarkgrey"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!--<TableLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-            <!--<TableRow-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="23dp"-->
-                <!--android:layout_marginBottom="10dp"-->
-                <!--android:orientation="vertical"-->
-                <!--android:background="@color/colorBackgroundLightgrey"-->
-                <!--android:padding="16dip"-->
-                <!--android:id="@+id/File_title_textView"-->
-                <!--android:gravity="center_horizontal">-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/Id"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@android:color/transparent"-->
-                    <!--android:typeface="monospace"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:text="Record file Name"-->
-                    <!--android:textSize="22dp"-->
-                    <!--android:layout_column="0">-->
-                <!--</EditText>-->
-
-            <!--</TableRow>-->
-
-            <!--<TableRow-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:background="@color/colorBackgroundLightgrey"-->
-                <!--android:layout_marginBottom="1.5dp"-->
-                <!--android:id="@+id/GPS_Field"-->
-                <!--android:clickable="false"-->
-                <!--android:paddingLeft="20dip"-->
-                <!--android:paddingBottom="16dip"-->
-                <!--android:paddingTop="16dip"-->
-                <!--android:orientation="vertical">-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/GPS_EditText"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!-- -->
-                    <!--android:typeface="monospace"-->
-                    <!--android:textStyle="bold">-->
-                <!--</EditText>-->
-                <!-- -->
-            <!--</TableRow>-->
-
-<!--</TableLayout>-->
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -103,9 +58,8 @@
                     android:layout_height="wrap_content"
                     android:typeface="monospace"
                     android:textStyle="bold"
-
                     android:hint="Enter file Name"
-                    android:textSize="22dp"
+                    android:textSize="22sp"
                     android:background="@android:color/transparent"
                     android:gravity="center_horizontal">
                 </EditText>
@@ -127,12 +81,13 @@
                     android:id="@+id/GPS_EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:background="@android:color/transparent"
                     android:editable="false"
-                    android:drawableLeft="@drawable/ic_password_grey"
+                    android:drawableStart="@drawable/ic_location_grey"
                     android:typeface="monospace"
                     android:textStyle="bold"
-                    android:text="GPS"
+                    android:text="@string/textField_GPS"
                     android:padding="2dp">
                 </EditText>
 
@@ -154,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_password_grey"
+                    android:drawableLeft="@drawable/ic_clock_grey"
                     android:clickable="false"
                     android:editable="false"
                     android:typeface="monospace"
@@ -211,6 +166,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp" />
             </TableRow>
+
 
 
         </TableLayout>

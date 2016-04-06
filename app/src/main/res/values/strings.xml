@@ -23,6 +23,7 @@
     <string name="textField_ChangeCity">Change City</string>
     <string name="textField_ChangePassword">Change Password</string>
     <string name="textField_ChangeEmail">Change Email</string>
+    <string name="textField_GPS">GPS</string>
     <!-- Strings related to button -->
     <string name="login_button">Login</string>
     <string name="record_button">Record</string>
@@ -30,4 +31,6 @@
     <string name="title_activity_ds">ds</string>
     <string name="title_activity_save_record">SaveRecordActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="label_new_record">New record file</string>
 </resources>
