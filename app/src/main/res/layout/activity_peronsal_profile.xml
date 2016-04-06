@@ -67,7 +67,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_arrowrifht_black"
+            android:background="@drawable/ic_arrow_right_black"
             android:id="@+id/pswChange_btn"
             android:gravity="right"
             android:layout_column="2"
@@ -101,7 +101,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_arrowrifht_black"
+            android:background="@drawable/ic_arrow_right_black"
             android:id="@+id/CityChange_btn"
             android:gravity="right"
             android:layout_column="2"
@@ -135,7 +135,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_arrowrifht_black"
+            android:background="@drawable/ic_arrow_right_black"
             android:id="@+id/EmailChange_btn"
             android:gravity="right"
             android:layout_column="2"
