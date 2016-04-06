@@ -91,7 +91,7 @@
         android:layout_marginBottom="8dp">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/delete_btn"
             android:text="Delete"
@@ -109,7 +109,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/radius_btn2"
             android:text="Save"
