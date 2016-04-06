@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.sauvola.jussi.serendipity.SaveRecordActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundDarkgrey"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!--<TableLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="23dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:orientation="vertical"-->
+                <!--android:background="@color/colorBackgroundLightgrey"-->
+                <!--android:padding="16dip"-->
+                <!--android:id="@+id/File_title_textView"-->
+                <!--android:gravity="center_horizontal">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/Id"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@android:color/transparent"-->
+                    <!--android:typeface="monospace"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:text="Record file Name"-->
+                    <!--android:textSize="22dp"-->
+                    <!--android:layout_column="0">-->
+                <!--</EditText>-->
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@color/colorBackgroundLightgrey"-->
+                <!--android:layout_marginBottom="1.5dp"-->
+                <!--android:id="@+id/GPS_Field"-->
+                <!--android:clickable="false"-->
+                <!--android:paddingLeft="20dip"-->
+                <!--android:paddingBottom="16dip"-->
+                <!--android:paddingTop="16dip"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/GPS_EditText"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!-- -->
+                    <!--android:typeface="monospace"-->
+                    <!--android:textStyle="bold">-->
+                <!--</EditText>-->
+                <!-- -->
+            <!--</TableRow>-->
+
+<!--</TableLayout>-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBackgroundLightgrey"
+                android:padding="16dip"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/File_title_TableRow"
+                android:gravity="center_horizontal">
+
+                <EditText
+                    android:id="@+id/Id"
+                    android:layout_width="360dp"
+                    android:layout_height="wrap_content"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+
+                    android:hint="Enter file Name"
+                    android:textSize="22dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_horizontal">
+                </EditText>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackgroundLightgrey"
+                android:layout_marginBottom="1.5dp"
+                android:id="@+id/GPS_TableRow"
+                android:clickable="false"
+
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/GPS_EditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:editable="false"
+                    android:drawableLeft="@drawable/ic_password_grey"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:text="GPS"
+                    android:padding="2dp">
+                </EditText>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackgroundLightgrey"
+                android:layout_marginBottom="1.5dp"
+                android:id="@+id/Timestamp_TableRow"
+                android:clickable="false"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/TimesTamp_EditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_password_grey"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:text="TimesTamp"
+                    android:padding="2dp">
+                </EditText>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackgroundLightgrey"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/Desription_TableRow"
+                android:clickable="false"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/desription_EditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dip"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:editable="true"
+                    android:hint="Write your descriptoin there..."
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal|top"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+                </EditText>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="6dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radius_btn2"
+                    android:text="Save"
+                    android:id="@+id/save_btn"
+                    android:textAllCaps="false"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textSize="20dp"
+                    android:typeface="monospace"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp" />
+            </TableRow>
+
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

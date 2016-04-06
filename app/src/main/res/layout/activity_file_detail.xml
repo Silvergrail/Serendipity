@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,15 +8,22 @@
     tools:context="com.sauvola.jussi.serendipity.FileDetailActivity"
     android:gravity="center_horizontal">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical"
         android:background="@color/colorBackgroundLightgrey"
-        android:padding="17dip"
+        android:padding="16dip"
         android:id="@+id/File_title_textView"
         android:gravity="center_horizontal">
 
@@ -27,7 +35,8 @@
                 android:typeface="monospace"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="0dp" />
+                android:layout_marginBottom="0dp"
+                android:gravity="center_vertical" />
     </TableRow>
 
     <TableRow
@@ -38,8 +47,8 @@
         android:id="@+id/GPS_Field"
         android:clickable="false"
         android:paddingLeft="20dip"
-        android:paddingBottom="17dip"
-        android:paddingTop="17dip">
+        android:paddingBottom="16dip"
+        android:paddingTop="16dip">
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,11 +63,11 @@
         android:layout_marginBottom="1.5dp"
         android:id="@+id/Timestap_Field"
         android:paddingLeft="20dp"
-        android:paddingTop="17dip"
-        android:paddingBottom="17dip">
+        android:paddingTop="16dip"
+        android:paddingBottom="16dip">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Timestamp"
             android:id="@+id/timestamp_textView" />
@@ -71,15 +80,16 @@
         android:orientation="vertical"
         android:layout_marginBottom="18dp"
         android:id="@+id/Descriptoin_Field"
-        android:paddingTop="17dip"
-        android:paddingBottom="17dip"
+        android:paddingTop="16dip"
+        android:paddingBottom="16dip"
         android:paddingLeft="2dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descitpion: this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. "
-            android:id="@+id/file_description"
+            android:text="Descitpion: this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. "
+            android:id="@+id/deription_textView"
+
             android:layout_marginBottom="0dp"
             android:paddingRight="17dp"
             android:paddingLeft="17dp" />
@@ -87,11 +97,24 @@
 
     <TableRow
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/record_play_button"
+            android:background="@drawable/ic_record_play"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="6dp">
 
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/delete_btn"
             android:text="Delete"
@@ -105,19 +128,47 @@
     </TableRow>
 
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:layout_marginBottom="6dp">
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/radius_btn2"
-            android:text="Save"
-            android:id="@+id/save_btn"
-            android:textAllCaps="false"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textSize="20dp"
-            android:typeface="monospace" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius_btn2"
+        android:text="Save"
+        android:id="@+id/save_btn"
+        android:textAllCaps="false"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="20dp"
+        android:typeface="monospace"
+        android:layout_marginBottom="10dp" />
     </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundLightgrey"
+        android:orientation="vertical"
+        android:layout_marginBottom="18dp"
+        android:id="@+id/Comment_Field"
+        android:paddingTop="17dip"
+        android:paddingBottom="17dip"
+        android:paddingLeft="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pieter: I like this "
+            android:id="@+id/comment_textView"
+            android:layout_marginBottom="0dp"
+            android:paddingRight="17dp"
+            android:paddingLeft="17dp" />
+    </TableRow>
+
+
+
 </TableLayout>
+    </ScrollView>
+</LinearLayout>
