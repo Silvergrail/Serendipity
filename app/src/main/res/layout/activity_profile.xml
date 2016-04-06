@@ -28,8 +28,6 @@
 
     </LinearLayout>
 
-
-<<<<<<< HEAD
      <TableLayout
          android:layout_width="match_parent"
          android:layout_height="match_parent"
@@ -37,7 +35,7 @@
          android:orientation="vertical"
          android:shrinkColumns="4"
          android:stretchColumns="4"
-         android:layout_below="@+id/linearLayout">
+         android:layout_below="@+id/linearLayout"/>
 
          <TableRow
              android:layout_width="match_parent"
@@ -83,7 +81,7 @@
                  android:layout_weight="0.2" />
 
          </TableRow>
-=======
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -98,7 +96,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/listView"
         android:layout_below="@+id/linearLayout" />
->>>>>>> master
 
     </LinearLayout>
 
