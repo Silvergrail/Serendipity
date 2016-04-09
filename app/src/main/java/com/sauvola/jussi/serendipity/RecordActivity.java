@@ -5,6 +5,7 @@ import java.io.IOException;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,6 +32,7 @@ public class RecordActivity extends Activity {
     private static Button stopButton;
     private static Button playButton;
     private static Button recordButton;
+    private static Button saveButton;
 
     private boolean isRecording = false;
 
@@ -43,10 +45,20 @@ public class RecordActivity extends Activity {
         recordButton = (Button) findViewById(R.id.start_record_button);
         playButton = (Button) findViewById(R.id.record_cancel_btn);
         stopButton = (Button) findViewById(R.id.record_pause_btn);
+        saveButton = (Button) findViewById(R.id.save_btn);
 
 
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
         mFileName += "/audiorecordtest.3gp";
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.SaveRecordActivity");
+                startActivity(intent);
+            }
+
+        });
 
         recordButton.setOnClickListener(new View.OnClickListener() {
             @Override
