@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundDarkgrey"
+    tools:context="com.sauvola.jussi.serendipity.PeronsalProfileActivity">
+
+
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingTop="@dimen/activity_horizontal_margin"
     android:background="@color/colorBackgroundDarkgrey"
     android:shrinkColumns="1,2,3"
@@ -143,5 +152,32 @@
             android:layout_weight="0.1"
             android:layout_marginRight="-20dip" />
     </TableRow>
-
 </TableLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius_btn2"
+        android:text="save"
+        android:id="@+id/save_button"
+        android:textAllCaps="false"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius_btn2"
+        android:text="Log out"
+        android:id="@+id/logout_button"
+        android:textAllCaps="false"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textSize="20sp"
+        android:typeface="monospace"/>
+
+</LinearLayout>

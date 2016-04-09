@@ -16,13 +16,6 @@ public class SaveRecordActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        toolbar.setTitle("Toolbar Title");
-
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Toolbar Title");
-        getSupportActionBar().setSubtitle("Toolbar Subtitle");
-        toolbar.setNavigationIcon(R.drawable.ic_back_light);
     }
 
 }

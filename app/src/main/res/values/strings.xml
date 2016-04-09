@@ -15,6 +15,7 @@
     </string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_register">Register</string>
+    <string name="title_activity_profile">Profile</string>
 
     <string name="textField_name">Name</string>
     <string name="textField_nickname">Nick Name</string>
@@ -33,4 +34,5 @@
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="label_new_record">New record file</string>
+    <string name="title_activity_profiles">ProfilesActivity</string>
 </resources>
