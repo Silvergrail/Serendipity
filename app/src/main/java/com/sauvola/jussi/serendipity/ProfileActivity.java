@@ -54,6 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
+
     //SessionManager session;
 
     //SharedPreferences sharedpreferences;
@@ -82,6 +83,18 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        Button mSettingButton = (Button) findViewById(R.id.register_button);
+        mSettingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.PersonalProfileActivity");
+                startActivity(intent);
+            }
+        });
 
 
        // sharedpreferences = getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
