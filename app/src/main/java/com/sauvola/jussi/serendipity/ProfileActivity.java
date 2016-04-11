@@ -87,7 +87,7 @@ public class ProfileActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button mSettingButton = (Button) findViewById(R.id.register_button);
+        Button mSettingButton = (Button) findViewById(R.id.SettingButton);
         mSettingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,9 +113,9 @@ public class ProfileActivity extends AppCompatActivity {
         recordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent("com.sauvola.jussi.serendipity.RecordActivity");
-                    startActivity(intent);
-                }
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.RecordActivity");
+                startActivity(intent);
+            }
 
         });
 
