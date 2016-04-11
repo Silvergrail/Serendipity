@@ -19,8 +19,10 @@ import android.media.MediaRecorder;
 import android.os.Environment;
 import android.widget.Button;
 import android.media.MediaPlayer;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
-public class RecordActivity extends Activity {
+public class RecordActivity extends AppCompatActivity {
 
 
     private static MediaRecorder mediaRecorder;
@@ -41,6 +43,9 @@ public class RecordActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_record);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         recordButton = (Button) findViewById(R.id.start_record_button);
         playButton = (Button) findViewById(R.id.record_cancel_btn);
@@ -104,7 +109,7 @@ public class RecordActivity extends Activity {
                 }
 
             }
-            });
+        });
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +129,7 @@ public class RecordActivity extends Activity {
                 }
 
             }
-            });
+        });
 
     }
 
