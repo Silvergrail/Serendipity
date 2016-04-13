@@ -87,7 +87,7 @@ public class ProfileActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button mSettingButton = (Button) findViewById(R.id.SettingButton);
+        Button mSettingButton = (Button) findViewById(R.id.setting_button);
         mSettingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

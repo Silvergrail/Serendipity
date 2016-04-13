@@ -6,6 +6,8 @@ import static com.sauvola.jussi.serendipity.ProfileActivity.TAG_FILE_DESCRIPTION
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -18,6 +20,18 @@ public class FileDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_detail);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        Button mSettingButton = (Button) findViewById(R.id.setting_button);
+        mSettingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.PersonalProfileActivity");
+                startActivity(intent);
+            }
+        });
 
         Intent in = getIntent();
 

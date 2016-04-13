@@ -1,175 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@color/colorBackgroundDarkgrey"
     tools:context="com.sauvola.jussi.serendipity.FileDetailActivity"
     android:gravity="center_horizontal">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-<TableLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <TableRow
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="vertical"
-        android:background="@color/colorBackgroundLightgrey"
-        android:padding="16dip"
-        android:id="@+id/File_title_textView"
-        android:gravity="center_horizontal">
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/file_title_text"
-                android:typeface="normal"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="0dp"
-                android:gravity="center_vertical" />
-    </TableRow>
+                android:text="@string/title_activity_file_detail"
+                android:id="@+id/textView"
+                android:textSize="19dp" />
 
-    <TableRow
+            <Button
+                android:layout_width="38dip"
+                android:layout_height="38dip"
+                android:layout_gravity="right"
+                android:background="@drawable/ic_setting_grey"
+                android:id="@+id/setting_button"
+                android:layout_marginRight="10dp"/>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackgroundLightgrey"
-        android:layout_marginBottom="1.5dp"
-        android:id="@+id/GPS_Field"
-        android:clickable="false"
-        android:paddingLeft="20dip"
-        android:paddingBottom="16dip"
-        android:paddingTop="16dip">
+        tools:context="com.sauvola.jussi.serendipity.FileDetailActivity"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/file_gps_text" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackgroundLightgrey"
-        android:layout_marginBottom="1.5dp"
-        android:id="@+id/Timestap_Field"
-        android:paddingLeft="20dp"
-        android:paddingTop="16dip"
-        android:paddingBottom="16dip">
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Timestamp"
-            android:id="@+id/timestamp_textView" />
-    </TableRow>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackgroundLightgrey"
-        android:orientation="vertical"
-        android:layout_marginBottom="18dp"
-        android:id="@+id/Descriptoin_Field"
-        android:paddingTop="16dip"
-        android:paddingBottom="16dip"
-        android:paddingLeft="2dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    android:background="@color/colorBackgroundLightgrey"
+                    android:padding="16dip"
+                    android:id="@+id/File_title_textView"
+                    android:gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descitpion: this is my first record file. this is my first record file. this is my first record file. this is my first record file. this is my first record file. "
-            android:id="@+id/file_description_text"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:id="@+id/file_title_text"
+                        android:typeface="normal"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="0dp"
+                        android:gravity="center_vertical" />
+                </TableRow>
 
-            android:layout_marginBottom="0dp"
-            android:paddingRight="17dp"
-            android:paddingLeft="17dp" />
-    </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackgroundLightgrey"
+                    android:layout_marginBottom="1.5dp"
+                    android:id="@+id/GPS_Field"
+                    android:clickable="false"
+                    android:paddingLeft="20dip"
+                    android:paddingBottom="16dip"
+                    android:paddingTop="16dip">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/file_gps_text" />
+                </TableRow>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/record_play_button"
-            android:background="@drawable/ic_record_play"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:contentDescription="@null"/>
-    </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackgroundLightgrey"
+                    android:layout_marginBottom="1.5dp"
+                    android:id="@+id/Timestap_Field"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="16dip"
+                    android:paddingBottom="16dip">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="6dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Timestamp"
+                        android:id="@+id/timestamp_textView" />
+                </TableRow>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/delete_btn"
-            android:text="Delete"
-            android:id="@+id/delete_btn"
-            android:textAllCaps="false"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textSize="20sp"
-            android:typeface="monospace"
-            android:textColor="@color/colorWhite" />
-    </TableRow>
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackgroundLightgrey"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/Descriptoin_Field"
+                    android:paddingTop="16dip"
+                    android:paddingBottom="16dip"
+                    android:paddingLeft="2dp">
 
-    <TableRow
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-        android:layout_marginBottom="6dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Descitpion: this is my first record file. "
+                        android:id="@+id/file_description_text"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/radius_btn2"
-        android:text="Save"
-        android:id="@+id/save_btn"
-        android:textAllCaps="false"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:textSize="20sp"
-        android:typeface="monospace"
-        android:layout_marginBottom="10dp" />
-    </TableRow>
+                        android:layout_marginBottom="0dp"
+                        android:paddingRight="17dp"
+                        android:paddingLeft="17dp" />
+                </TableRow>
+            </TableLayout>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackgroundLightgrey"
-        android:orientation="vertical"
-        android:layout_marginBottom="18dp"
-        android:id="@+id/Comment_Field"
-        android:paddingTop="17dip"
-        android:paddingBottom="17dip"
-        android:paddingLeft="2dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pieter: I like this "
-            android:id="@+id/comment_textView"
-            android:layout_marginBottom="0dp"
-            android:paddingRight="17dp"
-            android:paddingLeft="17dp" />
-    </TableRow>
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/record_play_button"
+                android:background="@drawable/ic_record_play"
+                android:layout_gravity="center"
+                android:layout_marginBottom="11dp"
+                android:contentDescription="@null"
+                android:layout_marginTop="3dp" />
 
 
 
-</TableLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/delete_btn"
+                android:text="Delete"
+                android:id="@+id/delete_btn"
+                android:textAllCaps="false"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="20sp"
+                android:typeface="monospace"
+                android:textColor="@color/colorWhite"
+                android:layout_marginBottom="10dp" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius_btn2"
+                android:text="Save"
+                android:id="@+id/save_btn"
+                android:textAllCaps="false"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="20sp"
+                android:typeface="monospace"
+                android:layout_marginBottom="13dp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackgroundLightgrey"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="3dp"
+                    android:id="@+id/comment_Field"
+                    android:paddingTop="10dip"
+                    android:paddingLeft="2dp"
+                    android:paddingBottom="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pieter: I like this "
+                        android:id="@+id/comment_textView"
+                        android:layout_marginBottom="0dp"
+                        android:paddingRight="17dp"
+                        android:paddingLeft="17dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackgroundLightgrey"
+                    android:id="@+id/Desription_TableRow"
+                    android:clickable="false"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/desription_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dip"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:editable="true"
+                        android:hint="Write your descriptoin there..."
+                        android:typeface="monospace"
+                        android:textStyle="bold"
+                        android:gravity="center_horizontal|top"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+                    </EditText>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

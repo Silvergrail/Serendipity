@@ -30,9 +30,10 @@
     <string name="record_button">Record</string>
     <string name="title_activity_first">FirstActivity</string>
     <string name="title_activity_ds">ds</string>
-    <string name="title_activity_save_record">SaveRecordActivity</string>
+    <string name="title_activity_save_record">Save Record</string>
     <string name="title_activity_record">Record</string>
 
     <string name="label_new_record">New record file</string>
+    <string name="title_activity_file_detail">File Details</string>
 
 </resources>

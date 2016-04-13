@@ -25,13 +25,12 @@
                 android:id="@+id/textView"
                 android:textSize="19dp" />
 
-            <ImageButton
+            <Button
                 android:layout_width="38dip"
                 android:layout_height="38dip"
-                android:id="@+id/SettingButton"
-                android:background="@drawable/ic_setting_grey"
                 android:layout_gravity="right"
-                android:clickable="true"
+                android:background="@drawable/ic_setting_grey"
+                android:id="@+id/setting_button"
                 android:layout_marginRight="10dp"/>
 
         </android.support.v7.widget.Toolbar>
@@ -85,8 +84,8 @@
             <Button
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="@drawable/ic_record_cancel"
-                android:id="@+id/record_cancel_btn" />
+                android:background="@drawable/ic_record_play"
+                android:id="@+id/ic_record_play" />
 
             <Button
                 android:layout_width="70dp"

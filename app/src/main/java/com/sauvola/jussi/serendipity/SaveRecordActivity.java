@@ -53,6 +53,15 @@ public class SaveRecordActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button mSettingButton = (Button) findViewById(R.id.setting_button);
+        mSettingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.PersonalProfileActivity");
+                startActivity(intent);
+            }
+        });
+
         if (android.os.Build.VERSION.SDK_INT > 9)
         {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();

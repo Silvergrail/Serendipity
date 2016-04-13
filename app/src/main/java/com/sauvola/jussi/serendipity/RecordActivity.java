@@ -47,6 +47,15 @@ public class RecordActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button mSettingButton = (Button) findViewById(R.id.setting_button);
+        mSettingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.PersonalProfileActivity");
+                startActivity(intent);
+            }
+        });
+
         recordButton = (Button) findViewById(R.id.start_record_button);
         playButton = (Button) findViewById(R.id.record_cancel_btn);
         stopButton = (Button) findViewById(R.id.record_pause_btn);

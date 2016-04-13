@@ -22,9 +22,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_new_record"
+                android:text="@string/title_activity_save_record"
                 android:id="@+id/textView"
                 android:textSize="19dp" />
+
+            <Button
+                android:layout_width="38dip"
+                android:layout_height="38dip"
+                android:layout_gravity="right"
+                android:background="@drawable/ic_setting_grey"
+                android:id="@+id/setting_button"
+                android:layout_marginRight="10dp"/>
 
             </android.support.v7.widget.Toolbar>
 
