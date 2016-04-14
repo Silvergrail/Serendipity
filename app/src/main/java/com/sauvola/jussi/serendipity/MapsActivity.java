@@ -1,10 +1,13 @@
 package com.sauvola.jussi.serendipity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +27,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.apache.http.HttpResponse;
@@ -52,6 +56,8 @@ public class MapsActivity extends FragmentActivity implements
 
     private GoogleMap mMap;
 
+    private Marker myMarker;
+
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
     private String JSONOutput = "";
@@ -60,6 +66,8 @@ public class MapsActivity extends FragmentActivity implements
     public static final String TAG_FILE_TITLE = "file_title";
     public static final String TAG_FILE_DESCRIPTION = "description";
     public static final String TAG_FILE_GPS = "GPS";
+
+    public static String markerTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +121,20 @@ public class MapsActivity extends FragmentActivity implements
         mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
         mMap.addMarker(new MarkerOptions().position(new LatLng(65.01205720, 25.46518630)).title("Oulutest"));
         connectWithHttpGet();
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+
+                Intent in = new Intent(getApplicationContext(),
+                        FileDetailActivityMaps.class);
+                in.putExtra(TAG_FILE_TITLE, marker.getTitle());
+                startActivity(in);
+
+                return false;
+            }
+
+        });
     }
 
     private void handleNewLocation(Location location) {
@@ -131,10 +153,22 @@ public class MapsActivity extends FragmentActivity implements
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
     }
 
+
+
     @Override
     public void onConnected(Bundle bundle) {
         Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (location == null) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         }
         else {
@@ -221,9 +255,9 @@ public class MapsActivity extends FragmentActivity implements
                     for (int i = 0; i < reader.length(); i++) {
                         JSONObject m = reader.getJSONObject(i);
                         String id = m.getString(TAG_FILE_ID);
-                        String title = m.getString(TAG_FILE_TITLE);
-                        String description = m.getString(TAG_FILE_DESCRIPTION);
-                        String gps = m.getString(TAG_FILE_GPS);
+                        final String title = m.getString(TAG_FILE_TITLE);
+                        final String description = m.getString(TAG_FILE_DESCRIPTION);
+                        final String gps = m.getString(TAG_FILE_GPS);
                         String[] latlong =  gps.split(",");
                         double latitude = Double.parseDouble(latlong[0]);
                         double longitude = Double.parseDouble(latlong[1]);
