@@ -78,6 +78,7 @@ public class FileDetailActivityMaps extends AppCompatActivity {
             protected String doInBackground(String... params) {
 
                 String fileTitle = params[0];
+                fileTitle = fileTitle.replaceAll(" ", "-");
                 Log.e("Lol", fileTitle);
 
                 // Create an intermediate to connect with the Internet
