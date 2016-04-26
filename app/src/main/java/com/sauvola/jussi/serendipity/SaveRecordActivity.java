@@ -35,6 +35,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,7 +44,10 @@ public class SaveRecordActivity extends AppCompatActivity {
 
 
     String existingFileName;
+    String newFileName;
     Button saveButton;
+    EditText fileTitle;
+    EditText fileDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,10 @@ public class SaveRecordActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+
+        fileTitle = (EditText) findViewById(R.id.file_name);
+
+        fileDescription = (EditText) findViewById(R.id.file_description);
 
         saveButton = (Button) findViewById(R.id.save_btn);
 
@@ -76,6 +84,14 @@ public class SaveRecordActivity extends AppCompatActivity {
         existingFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
         existingFileName += "/audiorecordtest.3gp";
 
+        newFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
+        newFileName += "/" + fileTitle.getText() + ".3gp";
+
+        File oldFile = new File(existingFileName);
+        File newFile = new File(newFileName);
+
+        oldFile.renameTo(newFile);
+
         String lineEnd = "\r\n";
         String twoHyphens = "--";
         String boundary = "*****";
@@ -88,7 +104,7 @@ public class SaveRecordActivity extends AppCompatActivity {
         try {
 
             //------------------ CLIENT REQUEST
-            FileInputStream fileInputStream = new FileInputStream(new File(existingFileName));
+            FileInputStream fileInputStream = new FileInputStream(newFile);
             // open a URL connection to the Servlet
             URL url = new URL(urlString);
             // Open a HTTP connection to the URL
@@ -105,7 +121,7 @@ public class SaveRecordActivity extends AppCompatActivity {
             conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
             dos = new DataOutputStream(conn.getOutputStream());
             dos.writeBytes(twoHyphens + boundary + lineEnd);
-            dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + existingFileName + "\"" + lineEnd);
+            dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + newFileName + "\"" + lineEnd);
             dos.writeBytes(lineEnd);
             // create a buffer of maximum size
             bytesAvailable = fileInputStream.available();
