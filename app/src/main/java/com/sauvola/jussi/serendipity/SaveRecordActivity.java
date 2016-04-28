@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
+import com.google.android.gms.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -117,6 +117,8 @@ public class SaveRecordActivity extends AppCompatActivity implements LocationLis
             @Override
             public void onClick(View v) {
                 doFileUpload();
+                Intent intent = new Intent("com.sauvola.jussi.serendipity.ProfileActivity");
+                startActivity(intent);
             }
 
         });
@@ -280,21 +282,6 @@ public class SaveRecordActivity extends AppCompatActivity implements LocationLis
     @Override
     public void onLocationChanged(Location location) {
         handleNewLocation(location);
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
     }
 
     @Override
